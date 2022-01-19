@@ -1,5 +1,18 @@
 <?php
 
+namespace App\OL3\model\styles;
+
+
+
+
+use App\OL3\model\styles\OL3Style;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Assets\File;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataObject;
+
+
+
 /**
  * File containa the OL3Style class.
  *
@@ -34,7 +47,7 @@ class OL3Style extends DataObject
         foreach ($this->config()->get('has_one') ?: [] as $componentName => $className) {
 
             // only process styles
-            if (!is_a($className, 'OL3Style', true)) {
+            if (!is_a($className, OL3Style::class, true)) {
                 continue;
             }
 
@@ -58,7 +71,7 @@ class OL3Style extends DataObject
 
                     // UploadField edge case: UploadField::setValue() is inconsistent with the way data is being
                     // loaded into the flattened form fields
-                    if (is_a($component->has_one($fieldName), 'File', true) && $field instanceof UploadField) {
+                    if (is_a($component->has_one($fieldName), File::class, true) && $field instanceof UploadField) {
                         $field->setValue(null, $component);
                     } else {
                         $field->setValue($component->$fieldName);
@@ -98,10 +111,10 @@ class OL3Style extends DataObject
             $components = $this->config()->get('has_one');
             if ($components) {
                 foreach ($components as $componentName => $componentClass) {
-                    if (is_a($componentClass, 'OL3Style', true) && $curr = $this->$componentName()) {
+                    if (is_a($componentClass, OL3Style::class, true) && $curr = $this->$componentName()) {
                         // traverse deeper into the nested style structure
                         $curr->getStyles($styles);
-                    } elseif (is_a($componentClass, 'File', true) && $curr = $this->$componentName()) {
+                    } elseif (is_a($componentClass, File::class, true) && $curr = $this->$componentName()) {
                         // add Filename for file components
                         $styles[$this->ID][$componentName . 'SRC'] = $curr->Filename;
                     }

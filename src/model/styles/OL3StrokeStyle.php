@@ -1,5 +1,12 @@
 <?php
 
+namespace App\OL3\model\styles;
+
+
+use App\OL3\ColorField;
+
+
+
 /**
  * File contains the OL3StrokeStyle class.
  *

@@ -1,5 +1,19 @@
 <?php
 
+namespace App\OL3\model;
+
+
+
+use GridFieldSortableRows;
+
+use App\OL3\model\layers\OL3Layer;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataObject;
+
+
+
 /**
  * File contains the OL3Map class.
  *
@@ -67,7 +81,7 @@ class OL3Map extends DataObject
      * @var array has_one component classes
      */
     private static $has_one = [
-        'Background' => 'OL3Layer',
+        'Background' => OL3Layer::class,
     ];
 
     /**
@@ -78,7 +92,7 @@ class OL3Map extends DataObject
      * @var array has_many component classes
      */
     private static $has_many = [
-        'Layers' => 'OL3Layer',
+        'Layers' => OL3Layer::class,
     ];
 
     /**
@@ -106,8 +120,8 @@ class OL3Map extends DataObject
 
         if ($field = $fields->dataFieldByName('Layers')) {
             $field->getConfig()
-                ->removeComponentsByType('GridFieldAddExistingAutocompleter')
-                ->removeComponentsByType('GridFieldDeleteAction')
+                ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
+                ->removeComponentsByType(GridFieldDeleteAction::class)
                 ->addComponent(new GridFieldDeleteAction());
             if (class_exists('GridFieldSortableRows')) {
                 $field->getConfig()->addComponent(new GridFieldSortableRows('SortOrder'));

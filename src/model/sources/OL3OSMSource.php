@@ -1,5 +1,10 @@
 <?php
 
+namespace App\OL3\model\sources;
+
+
+
+
 /**
  * File contains the OL3OSMSource class.
  *

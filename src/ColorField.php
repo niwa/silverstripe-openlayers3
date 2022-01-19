@@ -1,5 +1,15 @@
 <?php
 
+namespace App\OL3;
+
+
+
+use SilverStripe\Forms\Validator;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\TextField;
+
+
+
 /**
  * File contains the ColorField class.
  *
@@ -22,7 +32,7 @@ class ColorField extends TextField
 
     /**
      * Make sure the color value matches the format.
-     * 
+     *
      * @param Validator $validator
      * @return bool
      */
@@ -44,13 +54,13 @@ class ColorField extends TextField
             ),
             "validation"
         );
-        
+
         return false;
     }
 
     /**
      * Overrides FormField::Field() to add RefEx and requirements.
-     * 
+     *
      * @param array $properties
      * @return string
      */
@@ -59,7 +69,7 @@ class ColorField extends TextField
         Requirements::javascript('openlayers/javascript/StyleFields.js');
         Requirements::css('openlayers/css/StyleFields.css');
         $this->setAttribute('pattern', $this->config()->get('regex'));
-        
+
         return parent::Field($properties);
     }
 }

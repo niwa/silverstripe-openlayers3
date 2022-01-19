@@ -1,5 +1,10 @@
 <?php
 
+namespace App\OL3\model\layers;
+
+
+
+
 /**
  * File contains the OL3TileLayer class.
  *

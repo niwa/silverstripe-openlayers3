@@ -1,5 +1,15 @@
 <?php
 
+namespace App\OL3\model\styles;
+use App\OL3\model\styles\OL3FillStyle;
+use App\OL3\model\styles\OL3StrokeStyle;
+use App\OL3\model\styles\OL3TextStyle;
+use App\OL3\model\styles\OL3ImageStyle;
+
+
+
+
+
 /**
  * File contains the OL3StyleStyle class.
  *
@@ -47,9 +57,9 @@ class OL3StyleStyle extends OL3Style
      * @var array has_one component classes
      */
     private static $has_one = [
-        'Fill' => 'OL3FillStyle',
-        'Stroke' => 'OL3StrokeStyle',
-        'Text' => 'OL3TextStyle',
-        'Image' => 'OL3ImageStyle',
+        'Fill' => OL3FillStyle::class,
+        'Stroke' => OL3StrokeStyle::class,
+        'Text' => OL3TextStyle::class,
+        'Image' => OL3ImageStyle::class,
     ];
 }

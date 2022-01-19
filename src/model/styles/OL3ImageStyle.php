@@ -1,5 +1,16 @@
 <?php
 
+namespace App\OL3\model\styles;
+
+
+
+
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HeaderField;
+
+
+
 /**
  * File contains the OL3ImageStyle class.
  *

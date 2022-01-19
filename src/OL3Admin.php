@@ -1,5 +1,14 @@
 <?php
 
+namespace App\OL3;
+
+
+use App\OL3\model\OL3Map;
+use App\OL3\model\styles\OL3StyleStyle;
+use SilverStripe\Admin\ModelAdmin;
+
+
+
 /**
  * File contains the OL3Admin class.
  *
@@ -40,7 +49,7 @@ class OL3Admin extends ModelAdmin
      * @var array
      */
     private static $managed_models = [
-        'OL3Map',
-        'OL3StyleStyle',
+        OL3Map::class,
+        OL3StyleStyle::class,
     ];
 }

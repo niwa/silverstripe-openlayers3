@@ -1,5 +1,12 @@
 <?php
 
+namespace App\OL3\model\sources;
+
+
+use SilverStripe\ORM\DataObject;
+
+
+
 /**
  * File contains the OL3Source class.
  *

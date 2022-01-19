@@ -1,5 +1,12 @@
 <?php
 
+namespace App\OL3\model\styles;
+use SilverStripe\Assets\Image;
+
+
+
+
+
 /**
  * File contains the OL3IconStyle class.
  *
@@ -33,7 +40,7 @@ class OL3IconStyle extends OL3ImageStyle
      * @var array has_one component classes
      */
     private static $has_one = [
-        'Icon' => 'Image',
+        'Icon' => Image::class,
     ];
 
     /**

@@ -1,0 +1,26 @@
+mappings:
+  ColorField: App\OL3\ColorField
+  OL3Admin: App\OL3\OL3Admin
+  RangeExtension: App\OL3\RangeExtension
+  OL3Map: App\OL3\model\OL3Map
+  OL3ImageLayer: App\OL3\model\layers\OL3ImageLayer
+  OL3Layer: App\OL3\model\layers\OL3Layer
+  OL3TileLayer: App\OL3\model\layers\OL3TileLayer
+  OL3VectorLayer: App\OL3\model\layers\OL3VectorLayer
+  OL3BingMapsSource: App\OL3\model\sources\OL3BingMapsSource
+  OL3ClusterSource: App\OL3\model\sources\OL3ClusterSource
+  OL3ImageStaticSource: App\OL3\model\sources\OL3ImageStaticSource
+  OL3ImageWMSSource: App\OL3\model\sources\OL3ImageWMSSource
+  OL3OSMSource: App\OL3\model\sources\OL3OSMSource
+  OL3Source: App\OL3\model\sources\OL3Source
+  OL3TileWMSSource: App\OL3\model\sources\OL3TileWMSSource
+  OL3VectorSource: App\OL3\model\sources\OL3VectorSource
+  OL3CircleStyle: App\OL3\model\styles\OL3CircleStyle
+  OL3FillStyle: App\OL3\model\styles\OL3FillStyle
+  OL3IconStyle: App\OL3\model\styles\OL3IconStyle
+  OL3ImageStyle: App\OL3\model\styles\OL3ImageStyle
+  OL3RegularShapeStyle: App\OL3\model\styles\OL3RegularShapeStyle
+  OL3StrokeStyle: App\OL3\model\styles\OL3StrokeStyle
+  OL3Style: App\OL3\model\styles\OL3Style
+  OL3StyleStyle: App\OL3\model\styles\OL3StyleStyle
+  OL3TextStyle: App\OL3\model\styles\OL3TextStyle

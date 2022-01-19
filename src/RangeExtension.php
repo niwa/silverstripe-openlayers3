@@ -1,5 +1,14 @@
 <?php
 
+namespace App\OL3;
+
+
+
+use SilverStripe\View\Requirements;
+use SilverStripe\Core\Extension;
+
+
+
 /**
  * File contains the RangeExtension class.
  *

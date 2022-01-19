@@ -1,5 +1,24 @@
 <?php
 
+namespace App\OL3\model\layers;
+
+
+
+
+
+
+
+use App\OL3\model\OL3Map;
+use App\OL3\model\sources\OL3Source;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Assets\File;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataObject;
+
+
+
 /**
  * File contains the OL3Layer class.
  *
@@ -45,8 +64,8 @@ class OL3Layer extends DataObject
      * @var string[] has_one component classes
      */
     private static $has_one = [
-        'Map' => 'OL3Map',
-        'Source' => 'OL3Source',
+        'Map' => OL3Map::class,
+        'Source' => OL3Source::class,
     ];
 
     /**
@@ -151,7 +170,7 @@ class OL3Layer extends DataObject
 
                     // UploadField edge case: UploadField::setValue() is inconsistent with the way data is being
                     // loaded into the flattened form fields
-                    if (is_a($source->has_one($fieldName), 'File', true) && $field instanceof UploadField) {
+                    if (is_a($source->has_one($fieldName), File::class, true) && $field instanceof UploadField) {
                         $field->setValue(null, $source);
                     } else {
                         $field->setValue($source->$fieldName);
