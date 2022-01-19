@@ -3,8 +3,6 @@
 namespace App\OL3\model\layers;
 
 
-
-
 /**
  * File contains the OL3ImageLayer class.
  *
@@ -16,7 +14,6 @@ namespace App\OL3\model\layers;
  * Representation of an Openlayers3 ol.layer.Image
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.layer.Image.html
  */
-
 class OL3ImageLayer extends OL3Layer
 {
     /**
@@ -26,6 +23,6 @@ class OL3ImageLayer extends OL3Layer
      */
     private static $available_source_types = [
         'OL3ImageStaticSource' => 'Static Image Source',
-        'OL3ImageWMSSource' => 'WMS Image Source',
+        'OL3ImageWMSSource'    => 'WMS Image Source',
     ];
 }

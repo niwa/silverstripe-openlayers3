@@ -3,11 +3,9 @@
 namespace App\OL3;
 
 
-
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Validator;
 use SilverStripe\View\Requirements;
-use SilverStripe\Forms\TextField;
-
 
 
 /**
@@ -20,7 +18,6 @@ use SilverStripe\Forms\TextField;
 /**
  * A FormField to edit colors with opacity in the rgba() css format
  */
-
 class ColorField extends TextField
 {
     /**

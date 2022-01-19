@@ -1,11 +1,8 @@
 <?php
 
 namespace App\OL3\model\styles;
-use App\OL3\model\styles\OL3FillStyle;
-use App\OL3\model\styles\OL3StrokeStyle;
 
-
-
+use SilverStripe\Forms\FieldList;
 
 
 /**
@@ -19,52 +16,51 @@ use App\OL3\model\styles\OL3StrokeStyle;
  * Representation of an Openlayers3 ol.style.RegularShape
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.style.RegularShape.html
  */
-
 class OL3RegularShapeStyle extends OL3ImageStyle
 {
     /**
      * Map of class properties to persist in the database.
      * Keys are property names, values are data types.
-     * 
+     *
      * @var array
      */
     private static $db = [
         'InnerRadius' => 'Int',
         'OuterRadius' => 'Int',
-        'Points' => 'Int',
-        'Angle' => 'Int',
+        'Points'      => 'Int',
+        'Angle'       => 'Int',
     ];
 
     /**
      * Used by the ORM to establish class relations.
      * Map of has_one components.
      * Keys are component names, values are DataObject class names.
-     * 
+     *
      * @var array has_one component classes
      */
     private static $has_one = [
-        'Fill' => OL3FillStyle::class,
+        'Fill'   => OL3FillStyle::class,
         'Stroke' => OL3StrokeStyle::class,
     ];
 
     /**
      * Map of default values to hydrate instances with on creation.
      * Keys are property names, values are scalar values.
-     * 
+     *
      * @var array
      */
     private static $defaults = [
         'InnerRadius' => 0,
         'OuterRadius' => 25,
-        'Points' => 3,
-        'Angle' => 0,
+        'Points'      => 3,
+        'Angle'       => 0,
     ];
 
     /**
      * Getter for FieldList that is used for CRUD forms for this class.
      * Conatins field customisations, mainly transforming NumericFields to range
      * sliders and adding field descriptions.
-     * 
+     *
      * @return FieldList
      */
     public function getCMSFields()

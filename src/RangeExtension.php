@@ -3,10 +3,9 @@
 namespace App\OL3;
 
 
-
-use SilverStripe\View\Requirements;
 use SilverStripe\Core\Extension;
-
+use SilverStripe\Forms\NumericField;
+use SilverStripe\View\Requirements;
 
 
 /**
@@ -19,25 +18,24 @@ use SilverStripe\Core\Extension;
 /**
  * An extension to NumericField to display a HTML5 range slider
  */
-
 class RangeExtension extends Extension
 {
     /**
      * Default attributes for the range control.
-     * 
+     *
      * @var array
      */
     protected $range = [
-        'min' => null,
-        'max' => null,
-        'step' => 1,
+        'min'       => null,
+        'max'       => null,
+        'step'      => 1,
         'data-unit' => null,
     ];
 
     /**
      * Convenience setter for all attributes of the range control.
      * This is what switches out the controls.
-     * 
+     *
      * @param int $min the mininum that can be set on the field
      * @param int $max the maxinum that can be set on the field
      * @param int $step (optional) the incement, default is 1
@@ -51,7 +49,7 @@ class RangeExtension extends Extension
 
     /**
      * Setter for $this->min.
-     * 
+     *
      * @param int $min the mininum that can be set on the field
      * @return NumericField $this for chaining
      */
@@ -60,12 +58,13 @@ class RangeExtension extends Extension
         if (is_numeric($min)) {
             $this->range['min'] = $min;
         }
+
         return $this->owner;
     }
 
     /**
      * Setter for $this->max.
-     * 
+     *
      * @param int $max the maxinum that can be set on the field
      * @return NumericField $this for chaining
      */
@@ -74,12 +73,13 @@ class RangeExtension extends Extension
         if (is_numeric($max)) {
             $this->range['max'] = $max;
         }
+
         return $this->owner;
     }
 
     /**
      * Setter for $this->step.
-     * 
+     *
      * @param int $step the incement
      * @return NumericField $this for chaining
      */
@@ -88,12 +88,13 @@ class RangeExtension extends Extension
         if (is_numeric($step)) {
             $this->range['step'] = $step;
         }
+
         return $this->owner;
     }
 
     /**
      * Setter for $this->unit.
-     * 
+     *
      * @param int $unit the unit to be displayed after the value
      * @return NumericField $this for chaining
      */
@@ -102,12 +103,13 @@ class RangeExtension extends Extension
         if ($unit !== null) {
             $this->range['data-unit'] = $unit;
         }
+
         return $this->owner;
     }
 
     /**
      * Hook to replace the control.
-     * 
+     *
      * @param int $unit the unit to be displayed after the value
      * @return void
      */

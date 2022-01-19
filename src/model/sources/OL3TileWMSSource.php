@@ -3,7 +3,7 @@
 namespace App\OL3\model\sources;
 
 
-
+use SilverStripe\Forms\FieldList;
 
 /**
  * File contains the OL3TileWMSSource class.
@@ -16,7 +16,6 @@ namespace App\OL3\model\sources;
  * A wrapper for ol.source.TileWMS
  * @link https://openlayers.org/en/latest/apidoc/ol.source.TileWMS.html
  */
-
 class OL3TileWMSSource extends OL3Source
 {
     /**
@@ -24,9 +23,9 @@ class OL3TileWMSSource extends OL3Source
      * Keys are property names, values are data types
      * @var array
      */
-     private static $db = [
-        'Url' => 'Varchar(255)',
-        'Layers' => 'Varchar',
+    private static $db = [
+        'Url'        => 'Varchar(255)',
+        'Layers'     => 'Varchar',
         'Projection' => 'Varchar',
     ];
 

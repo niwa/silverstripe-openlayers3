@@ -3,8 +3,6 @@
 namespace App\OL3\model\sources;
 
 
-
-
 /**
  * File contains the OL3OSMSource class.
  *
@@ -16,7 +14,6 @@ namespace App\OL3\model\sources;
  * A wrapper for ol.source.OSM
  * @link https://openlayers.org/en/latest/apidoc/ol.source.OSM.html
  */
-
 class OL3OSMSource extends OL3Source
 {
 }

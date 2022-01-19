@@ -3,14 +3,11 @@
 namespace App\OL3\model\styles;
 
 
-
-
-use App\OL3\model\styles\OL3Style;
-use SilverStripe\Forms\HeaderField;
-use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\HeaderField;
 use SilverStripe\ORM\DataObject;
-
 
 
 /**
@@ -24,12 +21,11 @@ use SilverStripe\ORM\DataObject;
  * A base class for ol.styles
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.style.html
  */
-
 class OL3Style extends DataObject
 {
     /**
      * Some style classes have styles as their components. The nesting is non recursive
-     * and its depth is finite. This structure represents the structure of Openlayers3 
+     * and its depth is finite. This structure represents the structure of Openlayers3
      * ol.style structure.
      *
      * Since most styles contain little data and there are so many of them, editing
@@ -94,7 +90,7 @@ class OL3Style extends DataObject
      * Each style adds itself to the provided $style array reference, it's ID being
      * the $style arrays key and its protected record property array the value.
      * If the style has style components itself, this calls getStyles on them too.
-     * 
+     *
      * @param array $styles The styles to which the styles get added
      * @return void
      * @see OL3Style::getCMSFields()
@@ -125,7 +121,7 @@ class OL3Style extends DataObject
 
     /**
      * Make sure that the CMSFields vales get written to the styles components.
-     * 
+     *
      * @return void
      * @see OL3Style::getCMSFields()
      */

@@ -3,8 +3,6 @@
 namespace App\OL3\model\sources;
 
 
-
-
 /**
  * File contains the OL3ClusterSource class.
  *
@@ -16,13 +14,12 @@ namespace App\OL3\model\sources;
  * A wrapper for ol.source.Cluster
  * @link https://openlayers.org/en/latest/apidoc/ol.source.Cluster.html
  */
-
 class OL3ClusterSource extends OL3VectorSource
 {
     /**
      * Map of class properties to persist in the database
      * Keys are property names, values are data types.
-     * 
+     *
      * @var array
      */
     private static $db = [

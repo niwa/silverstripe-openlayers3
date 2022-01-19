@@ -3,7 +3,7 @@
 namespace App\OL3\model\layers;
 
 
-
+use SilverStripe\Forms\FieldList;
 
 /**
  * File contains the OL3VectorLayer class.
@@ -16,7 +16,6 @@ namespace App\OL3\model\layers;
  * Representation of an Openlayers3 ol.layer.Vector
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.layer.Vector.html
  */
-
 class OL3VectorLayer extends OL3Layer
 {
     /**
@@ -25,10 +24,10 @@ class OL3VectorLayer extends OL3Layer
      * Keys are component names, values are DataObject class names
      * @var array
      */
-     private static $has_one = [
+    private static $has_one = [
         'DefaultStyle' => 'Ol3StyleStyle',
-        'HoverStyle' => 'Ol3StyleStyle',
-        'SelectStyle' => 'Ol3StyleStyle',
+        'HoverStyle'   => 'Ol3StyleStyle',
+        'SelectStyle'  => 'Ol3StyleStyle',
     ];
 
     /**
@@ -38,7 +37,7 @@ class OL3VectorLayer extends OL3Layer
      */
     private static $available_source_types = [
         'OL3ClusterSource' => 'Cluster Source',
-        'OL3VectorSource' => 'Vector Source',
+        'OL3VectorSource'  => 'Vector Source',
     ];
 
     /**
@@ -54,6 +53,7 @@ class OL3VectorLayer extends OL3Layer
             $fields->dataFieldByName('HoverStyleID'),
             $fields->dataFieldByName('SelectStyleID'),
         ]);
+
         return $fields;
     }
 

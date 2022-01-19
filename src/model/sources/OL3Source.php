@@ -6,7 +6,6 @@ namespace App\OL3\model\sources;
 use SilverStripe\ORM\DataObject;
 
 
-
 /**
  * File contains the OL3Source class.
  *
@@ -18,7 +17,6 @@ use SilverStripe\ORM\DataObject;
  * A base class and wrapper for ol.source
  * @link https://openlayers.org/en/latest/apidoc/ol.source.html
  */
-
 class OL3Source extends DataObject
 {
 }

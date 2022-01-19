@@ -3,8 +3,6 @@
 namespace App\OL3\model\layers;
 
 
-
-
 /**
  * File contains the OL3TileLayer class.
  *
@@ -16,7 +14,6 @@ namespace App\OL3\model\layers;
  * Representation of an Openlayers3 ol.layer.Tile
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.layer.Tile.html
  */
-
 class OL3TileLayer extends OL3Layer
 {
     /**
@@ -25,8 +22,8 @@ class OL3TileLayer extends OL3Layer
      * @var array
      */
     private static $available_source_types = [
-        'OL3OSMSource' => 'OSM Source',
+        'OL3OSMSource'      => 'OSM Source',
         'OL3BingMapsSource' => 'Bing Source',
-        'OL3TileWMSSource' => 'WMS Tile Source',
+        'OL3TileWMSSource'  => 'WMS Tile Source',
     ];
 }

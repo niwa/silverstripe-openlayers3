@@ -3,20 +3,15 @@
 namespace App\OL3\model\layers;
 
 
-
-
-
-
-
 use App\OL3\model\OL3Map;
 use App\OL3\model\sources\OL3Source;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
-use SilverStripe\Assets\File;
-use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\DataObject;
-
 
 
 /**
@@ -30,7 +25,6 @@ use SilverStripe\ORM\DataObject;
  * A base class for ol.layers
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.layer.html
  */
-
 class OL3Layer extends DataObject
 {
     /**
@@ -52,9 +46,9 @@ class OL3Layer extends DataObject
      */
     private static $db = [
         'SortOrder' => 'Int',
-        'Title' => 'Varchar',
-        'Visible' => 'Boolean(1)',
-        'Opacity' => 'Decimal(3,2,1)',
+        'Title'     => 'Varchar',
+        'Visible'   => 'Boolean(1)',
+        'Opacity'   => 'Decimal(3,2,1)',
     ];
 
     /**
@@ -64,7 +58,7 @@ class OL3Layer extends DataObject
      * @var string[] has_one component classes
      */
     private static $has_one = [
-        'Map' => OL3Map::class,
+        'Map'    => OL3Map::class,
         'Source' => OL3Source::class,
     ];
 
@@ -85,10 +79,10 @@ class OL3Layer extends DataObject
      * @var string[] nice column names
      */
     private static $summary_fields = [
-        'Title' => 'Title',
-        'ClassName' => 'Type',
+        'Title'            => 'Title',
+        'ClassName'        => 'Type',
         'Source.ClassName' => 'Type',
-        'Visible' => 'Visible',
+        'Visible'          => 'Visible',
     ];
 
     /**
@@ -110,7 +104,7 @@ class OL3Layer extends DataObject
     /**
      * Getter for the Source component
      * This method always returns a source, while the magic component getter it "overwrites" doesn't
-     * @return DataList
+     * @return DataObject
      */
     public function Source()
     {
@@ -162,20 +156,20 @@ class OL3Layer extends DataObject
             if ($dataFields = $source->getCMSFields()->dataFields()) {
                 foreach ($dataFields as $fieldName => $field) {
 
-                // use componentName_fieldName syntax to avoid field name conflicts
-                $name = 'Source_' . $field->getName();
+                    // use componentName_fieldName syntax to avoid field name conflicts
+                    $name = 'Source_' . $field->getName();
 
-                // set the value only in the first iteration since it will not be available in the next loop hence be null
-                if (strpos($fieldName, '_') === false) {
+                    // set the value only in the first iteration since it will not be available in the next loop hence be null
+                    if (strpos($fieldName, '_') === false) {
 
-                    // UploadField edge case: UploadField::setValue() is inconsistent with the way data is being
-                    // loaded into the flattened form fields
-                    if (is_a($source->has_one($fieldName), File::class, true) && $field instanceof UploadField) {
-                        $field->setValue(null, $source);
-                    } else {
-                        $field->setValue($source->$fieldName);
+                        // UploadField edge case: UploadField::setValue() is inconsistent with the way data is being
+                        // loaded into the flattened form fields
+                        if (is_a($source->has_one($fieldName), File::class, true) && $field instanceof UploadField) {
+                            $field->setValue(null, $source);
+                        } else {
+                            $field->setValue($source->$fieldName);
+                        }
                     }
-                }
 
                     $fields->addFieldToTab('Root.Source', $field->setName($name));
                 }
@@ -190,21 +184,22 @@ class OL3Layer extends DataObject
      * Getter for the persistent properties.
      * This implementation adds the properties of the source component
      * Used in OL3Map::JsonLayers() to export the layer structure to the template
+     * @return array
      * @see OL3Map::JsonLayers()
-     * @return Array
      */
     public function toMap()
     {
         $map = parent::toMap();
         $map['Source'] = $this->Source()->toMap();
+
         return $map;
     }
 
     /**
      * Hook for logic to be executed before the record is written to the database
      * Takes care of the data coming from the extra fields for the inline editing of the source component
-     * @see OL3Layer::getCMSFields()
      * @return void
+     * @see OL3Layer::getCMSFields()
      */
     public function onBeforeWrite()
     {

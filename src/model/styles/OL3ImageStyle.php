@@ -3,12 +3,10 @@
 namespace App\OL3\model\styles;
 
 
-
-
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
-
 
 
 /**
@@ -22,13 +20,12 @@ use SilverStripe\Forms\HeaderField;
  * A base class for ol.style.images
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.style.Image.html
  */
-
 class OL3ImageStyle extends OL3Style
 {
     /**
      * Getter for FieldList that is used for CRUD forms for this class.
      * Conatins field customisations, mainly choosing the concrete class for this record.
-     * 
+     *
      * @return FieldList
      */
     public function getCMSFields()

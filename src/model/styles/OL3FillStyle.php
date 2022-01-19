@@ -4,7 +4,7 @@ namespace App\OL3\model\styles;
 
 
 use App\OL3\ColorField;
-
+use SilverStripe\Forms\FieldList;
 
 
 /**
@@ -18,13 +18,12 @@ use App\OL3\ColorField;
  * Representation of an Openlayers3 ol.style.Fill
  * @link http://openlayers.org/en/v3.19.1/apidoc/ol.style.Fill.html
  */
-
 class OL3FillStyle extends OL3Style
 {
     /**
      * Map of class properties to persist in the database.
      * Keys are property names, values are data types.
-     * 
+     *
      * @var string[] DB types
      */
     private static $db = [
@@ -34,7 +33,7 @@ class OL3FillStyle extends OL3Style
     /**
      * Map of default values to hydrate instances with on creation.
      * Keys are property names, values are scalar values.
-     * 
+     *
      * @var mixed[]
      */
     private static $defaults = [
@@ -44,7 +43,7 @@ class OL3FillStyle extends OL3Style
     /**
      * Getter for FieldList that is used for CRUD forms for this class.
      * Conatins field customisations, mainly transforming the color field into a color picker.
-     * 
+     *
      * @return FieldList
      */
     public function getCMSFields()

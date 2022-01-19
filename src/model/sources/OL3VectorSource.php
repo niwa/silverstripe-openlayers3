@@ -3,7 +3,7 @@
 namespace App\OL3\model\sources;
 
 
-
+use SilverStripe\Forms\FieldList;
 
 /**
  * File contains the OL3VectorSource class.
@@ -16,7 +16,6 @@ namespace App\OL3\model\sources;
  * A wrapper for ol.source.Vector
  * @link https://openlayers.org/en/latest/apidoc/ol.source.Vector.html
  */
-
 class OL3VectorSource extends OL3Source
 {
     /**
@@ -25,10 +24,10 @@ class OL3VectorSource extends OL3Source
      * @var array
      */
     private static $db = [
-        'Format' => "Enum('GeoJSON, GML','GeoJSON')",
-        'Url' => 'Varchar(255)',
+        'Format'       => "Enum('GeoJSON, GML','GeoJSON')",
+        'Url'          => 'Varchar(255)',
         'FeatureTypes' => 'Varchar',
-        'Projection' => 'Varchar',
+        'Projection'   => 'Varchar',
     ];
 
     /**
