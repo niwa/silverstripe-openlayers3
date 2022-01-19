@@ -120,8 +120,8 @@ class RangeExtension extends Extension
             foreach ($this->range as $key => $val) {
                 $this->owner->setAttribute($key, $val);
             }
-            Requirements::javascript('openlayers3/javascript/StyleFields.js');
-            Requirements::css('openlayers3/css/StyleFields.css');
+            Requirements::javascript('openlayers3: javascript/StyleFields.js');
+            Requirements::css('openlayers3: css/StyleFields.css');
         }
     }
 }
