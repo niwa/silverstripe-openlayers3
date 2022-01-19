@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: .
+      target: developer_php
+    ports:
+      - "8080:80"
+      - "8081:81"
+    volumes:
+      - .:/var/www/html:Z,delegated
+      - ./nginx.conf:/etc/nginx/conf.d/build.conf:Z,cached
+      - /tmp/.composer:/root/.composer:Z,cached
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:Z,cached
+      - ~/.ssh/known_hosts:/root/.ssh/known_hosts:Z,cached
+#      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - BUILD_NAME=silverstripe-openlayers3
+      - TIMEZONE=Pacific/Auckland
+      - PHP_IDE_CONFIG=serverName=silverstripe-openlayers3
+    tty: true
+    stdin_open: true
+    privileged: true
+
